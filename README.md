@@ -9,3 +9,6 @@ run **python manage.py runserver** to run the server
 run **python manage.py createstatic** to create the static files from **btre/static**
 
 run **python manage.py startapp pages** to create a new pages app
+
+rin **python manage.py makemigrations** to create migration files
+run **python manage.py migrate** to migrate

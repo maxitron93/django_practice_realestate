@@ -32,14 +32,15 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig', # pages/apps.py PagesConfig class
-    'listings.apps.ListingsConfig',
-    'realtors.apps.RealtorsConfig',
+    'listings.apps.ListingsConfig', # listings/apps.py ListingsConfig class
+    'realtors.apps.RealtorsConfig', # realtors/apps.py RealtorsConfig class
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'django.contrib.humanize' # enable the use of commas for big numbers
 ]
 
 MIDDLEWARE = [
@@ -78,8 +79,11 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'btre',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost'
     }
 }
 
@@ -125,3 +129,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'btre/static')
 ]
+
+# Media folder settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
